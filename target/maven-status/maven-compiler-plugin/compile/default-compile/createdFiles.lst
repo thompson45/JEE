@@ -1,0 +1,5 @@
+com\zenika\library\App.class
+com\zenika\library\service\PodiumService.class
+com\zenika\library\process\PodiumItem.class
+com\zenika\library\data\PodiumDAO.class
+com\zenika\library\process\Podium.class

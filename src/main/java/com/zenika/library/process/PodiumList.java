@@ -1,27 +1,31 @@
 package com.zenika.library.process;
 
-import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+public class PodiumList {
 
-@Entity
-public class PodiumList implements Serializable {
-
-	@Id
-	/** Podiums */
+	/**
+	 * Podiums
+	 */
 	private List<Podium> podiums;
 
-	public PodiumList(List<Podium> podiums) {
-		super();
-		this.podiums = podiums;
-	}
-	
+	/**
+	 * 
+	 */
 	public PodiumList() {
 		super();
+		this.podiums = new ArrayList<Podium>();
 	}
 	
+	/**
+	 * @param Podium
+	 */
+	public void addPodium(Podium podium)
+	{
+		this.podiums.add(podium);
+	}
+
 	/**
 	 * @return the podiums
 	 */
@@ -35,4 +39,5 @@ public class PodiumList implements Serializable {
 	public void setPodiums(List<Podium> podiums) {
 		this.podiums = podiums;
 	}
+	
 }

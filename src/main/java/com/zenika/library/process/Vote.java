@@ -1,37 +1,38 @@
 package com.zenika.library.process;
 
-import java.io.Serializable;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+public class Vote {
 
-@Entity
-public class Vote implements Serializable {
-
+	/**
+	 * 
+	 */
 	public Vote() {
 		super();
 	}
 
-	public Vote(Integer order) {
+	/**
+	 * @param order
+	 */
+	public Vote(List<Integer> order) {
 		super();
-		this.order = order;
+		this.setOrder(order);
 	}
-
-	@Id
-	/** Order */
-	private Integer order;
 
 	/**
 	 * @return the order
 	 */
-	public Integer getOrder() {
+	public List<Integer> getOrder() {
 		return order;
 	}
 
 	/**
 	 * @param order the order to set
 	 */
-	public void setOrder(Integer order) {
+	public void setOrder(List<Integer> order) {
 		this.order = order;
 	}
+
+	private List<Integer> order;
+
 }

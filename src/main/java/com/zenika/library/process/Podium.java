@@ -1,29 +1,59 @@
 package com.zenika.library.process;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import com.zenika.library.data.PodiumDAO;
 
-@Entity
-@Table(name="Podium")
 public class Podium implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -5372301494130311387L;
+	private static final long serialVersionUID = -5372301494130311388L;
 
+	/** Id */
+	private Integer id;
+
+	/** Name */
+	private String name;
+
+	/** NumberOfVotes */
+	private Integer numberOfVotes;
+	
+	/** Items */
+	private List<PodiumItem> items;
+
+
+	/**
+	 * 
+	 */
+	public Podium() {
+		super();
+	}
+	
+	/**
+	 * @param p1
+	 * @param p2
+	 * @param p3
+	 */
+	public Podium(PodiumDAO p1, PodiumDAO p2, PodiumDAO p3) {
+		super();
+		this.id = p1.getIdPodium();
+		this.name = p1.getName();
+		this.numberOfVotes = p1.getNumberOfVotes();
+		this.items = new ArrayList<PodiumItem>();
+		this.items.add(new PodiumItem(p1.getNameItem(),p1.getPoints(),p1.getImageUrl()));
+		this.items.add(new PodiumItem(p2.getNameItem(),p2.getPoints(),p2.getImageUrl()));
+		this.items.add(new PodiumItem(p3.getNameItem(),p3.getPoints(),p3.getImageUrl()));
+	}
+
+	/**
+	 * @param name
+	 * @param numberOfVotes
+	 * @param items
+	 */
 	public Podium(String name, Integer numberOfVotes, List<PodiumItem> items) {
 		super();
 		this.name = name;
@@ -31,6 +61,12 @@ public class Podium implements Serializable {
 		this.items = items;
 	}
 
+	/**
+	 * @param id
+	 * @param name
+	 * @param numberOfVotes
+	 * @param items
+	 */
 	public Podium(Integer id, String name, Integer numberOfVotes, List<PodiumItem> items) {
 		super();
 		this.id = id;
@@ -38,30 +74,6 @@ public class Podium implements Serializable {
 		this.numberOfVotes = numberOfVotes;
 		this.items = items;
 	}
-
-	public Podium() {
-		super();
-	}
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	/** Id */
-	@Column(name ="id")
-	private Integer id;
-
-	@Column(name ="name")
-	/** Name */
-	private String name;
-
-	@Column(name ="numberOfVotes")
-	/** NumberOfVotes */
-	private Integer numberOfVotes;
-	
-	//@ManyToOne(fetch = FetchType.LAZY)
-	//@JoinColumn(name = "items")
-	@Transient
-	/** PodiumItem */
-	private List<PodiumItem> items;
 
 	/**
 	 * @return the id

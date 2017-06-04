@@ -1,29 +1,28 @@
 package com.zenika.library.process;
 
-import java.io.Serializable;
+public class Search {
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+	private String searchTerm;
+	
+	private Integer page;
 
-@Entity
-public class Search implements Serializable {
-
-	public Search() {
-		super();
-	}
-
+	/**
+	 * @param searchTerm
+	 * @param page
+	 */
 	public Search(String searchTerm, Integer page) {
 		super();
 		this.searchTerm = searchTerm;
 		this.page = page;
 	}
 
-	@Id
-	/** SearchTerm */
-	private String searchTerm;
-	
-	/** Page */
-	private Integer page;
+	/**
+	 * 
+	 */
+	public Search() {
+		super();
+		this.page = 10;
+	}
 
 	/**
 	 * @return the searchTerm
@@ -52,4 +51,5 @@ public class Search implements Serializable {
 	public void setPage(Integer page) {
 		this.page = page;
 	}
+	
 }

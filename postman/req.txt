@@ -1,0 +1,33 @@
+http://127.0.0.1:8081/Podium/			POST
+
+{
+	"name": "Les Parfums de glace",
+	"items": [{
+		"name": "Chocolat"
+	},{
+		"name": "Fraise"
+	},{
+		"name": "Vanille"
+	}]
+}
+
+Content-Type: application/json
+Accept: application/json
+
+
+http://127.0.0.1:8081/Podium/1 			GET
+
+
+http://127.0.0.1:8081/Podium/1 			DELETE
+
+
+http://127.0.0.1:8081/Podium/0/vote		POST
+
+{
+	"order": [0,1,2]
+}
+
+Content-Type: application/json
+Accept: application/json
+
+http://127.0.0.1:8081/Podium/trending	GET

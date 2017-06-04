@@ -1,8 +1,5 @@
 package com.zenika.library;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -30,14 +27,15 @@ public class App {
 
 		final ServletContextHandler context = new ServletContextHandler(server, "/*", ServletContextHandler.GZIP);
 		context.addServlet(servlet, "/*");
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("apiPU");
 
 		try {
 			server.start();
 			server.join();
 			
-		} finally {
-			server.destroy();
+		}  catch (Exception e){
+	        System.out.println("Erreur lors de l'instanciation du serveur");
+	        server.stop();
+	        server.destroy();
 		}
 	}
 }
