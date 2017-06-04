@@ -23,7 +23,7 @@ public class App {
 			    .property("com.sun.jersey.api.json.POJOMappingFeature", "true");
 		final ServletHolder servlet = new ServletHolder(new ServletContainer(config));
 
-		final Server server = new Server(8081);
+		final Server server = new Server(8080);
 
 		final ServletContextHandler context = new ServletContextHandler(server, "/*", ServletContextHandler.GZIP);
 		context.addServlet(servlet, "/*");

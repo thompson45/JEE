@@ -1,4 +1,4 @@
-http://127.0.0.1:8081/Podium/			POST
+http://127.0.0.1:8080/Podium/			POST
 
 {
 	"name": "Les Parfums de glace",
@@ -14,14 +14,20 @@ http://127.0.0.1:8081/Podium/			POST
 Content-Type: application/json
 Accept: application/json
 
-
-http://127.0.0.1:8081/Podium/1 			GET
-
-
-http://127.0.0.1:8081/Podium/1 			DELETE
+---------------------------------------------------------------------
 
 
-http://127.0.0.1:8081/Podium/0/vote		POST
+http://127.0.0.1:8080/Podium/1 			GET
+
+---------------------------------------------------------------------
+
+
+http://127.0.0.1:8080/Podium/1 			DELETE
+
+---------------------------------------------------------------------
+
+
+http://127.0.0.1:8080/Podium/0/vote		POST
 
 {
 	"order": [0,1,2]
@@ -30,4 +36,20 @@ http://127.0.0.1:8081/Podium/0/vote		POST
 Content-Type: application/json
 Accept: application/json
 
-http://127.0.0.1:8081/Podium/trending	GET
+---------------------------------------------------------------------
+
+
+http://127.0.0.1:8080/Podium/trending	GET
+
+---------------------------------------------------------------------
+
+
+http://127.0.0.1:8080/Podium/search
+
+{
+	"searchTerm": "string",
+	"page": 2
+}
+
+Content-Type: application/json
+Accept: application/json
